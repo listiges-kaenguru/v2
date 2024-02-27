@@ -171,7 +171,7 @@ func sanitizeAttributes(baseURL, tagName string, attributes []html.Attribute) ([
 func getExtraAttributes(tagName string) ([]string, []string) {
 	switch tagName {
 	case "a":
-		return []string{"rel", "target", "referrerpolicy"}, []string{`rel="noopener noreferrer"`, `target="_blank"`, `referrerpolicy="no-referrer"`}
+		return []string{"rel", "target", "referrerpolicy"}, []string{`rel="noopener noreferrer"`, `target="{{condition ? '_blank' : 'none'}}"`, `referrerpolicy="no-referrer"`}
 	case "video", "audio":
 		return []string{"controls"}, []string{"controls"}
 	case "iframe":
