@@ -60,6 +60,7 @@ func (h *handler) updateSettings(w http.ResponseWriter, r *http.Request) {
 		EntriesPerPage:      model.OptionalInt(settingsForm.EntriesPerPage),
 		DisplayMode:         model.OptionalString(settingsForm.DisplayMode),
 		GestureNav:          model.OptionalString(settingsForm.GestureNav),
+		ArticleOpen:         model.OptionalString(settingsForm.ArticleOpen),
 		DefaultReadingSpeed: model.OptionalInt(settingsForm.DefaultReadingSpeed),
 		CJKReadingSpeed:     model.OptionalInt(settingsForm.CJKReadingSpeed),
 		DefaultHomePage:     model.OptionalString(settingsForm.DefaultHomePage),

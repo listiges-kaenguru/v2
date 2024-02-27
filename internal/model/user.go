@@ -28,6 +28,7 @@ type User struct {
 	ShowReadingTime        bool       `json:"show_reading_time"`
 	EntrySwipe             bool       `json:"entry_swipe"`
 	GestureNav             string     `json:"gesture_nav"`
+	ArticleOpen            string     `json:"article_open"`
 	LastLoginAt            *time.Time `json:"last_login_at"`
 	DisplayMode            string     `json:"display_mode"`
 	DefaultReadingSpeed    int        `json:"default_reading_speed"`
@@ -64,6 +65,7 @@ type UserModificationRequest struct {
 	ShowReadingTime        *bool   `json:"show_reading_time"`
 	EntrySwipe             *bool   `json:"entry_swipe"`
 	GestureNav             *string `json:"gesture_nav"`
+	ArticleOpen            *string `json:"article_open"`
 	DisplayMode            *string `json:"display_mode"`
 	DefaultReadingSpeed    *int    `json:"default_reading_speed"`
 	CJKReadingSpeed        *int    `json:"cjk_reading_speed"`
@@ -136,6 +138,10 @@ func (u *UserModificationRequest) Patch(user *User) {
 
 	if u.GestureNav != nil {
 		user.GestureNav = *u.GestureNav
+	}
+
+	if u.ArticleOpen != nil {
+		user.ArticleOpen = *u.ArticleOpen
 	}
 
 	if u.DisplayMode != nil {

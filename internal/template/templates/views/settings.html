@@ -187,6 +187,13 @@
             <option value="tap" {{ if eq "tap" $.form.GestureNav }}selected="selected"{{ end }}>{{ t "form.prefs.select.tap" }}</option>
             <option value="swipe" {{ if eq "swipe" $.form.GestureNav }}selected="selected"{{ end }}>{{ t "form.prefs.select.swipe" }}</option>
         </select>
+		
+        <label for="form-article-open">{{ t "form.prefs.label.article_open" }}</label>
+        <select id="form-article-open" name="article_open">
+            <option value="new_view" {{ if eq "new_view" $.form.ArticleOpen }}selected="selected"{{ end }}>{{ t "form.prefs.select.newview" }}</option>
+            <option value="browser_default" {{ if eq "browser_default" $.form.ArticleOpen }}selected="selected"{{ end }}>{{ t "form.prefs.select.browserdefault" }}</option>
+        </select>
+
 
         <label for="form-entries-per-page">{{ t "form.prefs.label.entries_per_page" }}</label>
         <input type="number" name="entries_per_page" id="form-entries-per-page" value="{{ .form.EntriesPerPage }}" min="1">

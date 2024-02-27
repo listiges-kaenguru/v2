@@ -82,6 +82,7 @@ func (s *Storage) CreateUser(userCreationRequest *model.UserCreationRequest) (*m
 			show_reading_time,
 			entry_swipe,
 			gesture_nav,
+			article_open,
 			stylesheet,
 			google_id,
 			openid_connect_id,
@@ -120,6 +121,7 @@ func (s *Storage) CreateUser(userCreationRequest *model.UserCreationRequest) (*m
 		&user.ShowReadingTime,
 		&user.EntrySwipe,
 		&user.GestureNav,
+		&user.ArticleOpen,
 		&user.Stylesheet,
 		&user.GoogleID,
 		&user.OpenIDConnectID,
@@ -186,9 +188,10 @@ func (s *Storage) UpdateUser(user *model.User) error {
 				cjk_reading_speed=$19,
 				default_home_page=$20,
 				categories_sorting_order=$21,
-				mark_read_on_view=$22
+				mark_read_on_view=$22,
+				article_open=$23
 			WHERE
-				id=$23
+				id=$24
 		`
 
 		_, err = s.db.Exec(
@@ -205,6 +208,7 @@ func (s *Storage) UpdateUser(user *model.User) error {
 			user.ShowReadingTime,
 			user.EntrySwipe,
 			user.GestureNav,
+			user.ArticleOpen,
 			user.Stylesheet,
 			user.GoogleID,
 			user.OpenIDConnectID,
@@ -243,9 +247,10 @@ func (s *Storage) UpdateUser(user *model.User) error {
 				cjk_reading_speed=$18,
 				default_home_page=$19,
 				categories_sorting_order=$20,
-				mark_read_on_view=$21
+				mark_read_on_view=$21,
+				article_open=$22
 			WHERE
-				id=$22
+				id=$23
 		`
 
 		_, err := s.db.Exec(
@@ -261,6 +266,7 @@ func (s *Storage) UpdateUser(user *model.User) error {
 			user.ShowReadingTime,
 			user.EntrySwipe,
 			user.GestureNav,
+			user.ArticleOpen,
 			user.Stylesheet,
 			user.GoogleID,
 			user.OpenIDConnectID,
@@ -308,6 +314,7 @@ func (s *Storage) UserByID(userID int64) (*model.User, error) {
 			show_reading_time,
 			entry_swipe,
 			gesture_nav,
+			article_open,
 			last_login_at,
 			stylesheet,
 			google_id,
@@ -343,6 +350,7 @@ func (s *Storage) UserByUsername(username string) (*model.User, error) {
 			show_reading_time,
 			entry_swipe,
 			gesture_nav,
+			article_open,
 			last_login_at,
 			stylesheet,
 			google_id,
@@ -378,6 +386,7 @@ func (s *Storage) UserByField(field, value string) (*model.User, error) {
 			show_reading_time,
 			entry_swipe,
 			gesture_nav,
+			article_open,
 			last_login_at,
 			stylesheet,
 			google_id,
@@ -420,6 +429,7 @@ func (s *Storage) UserByAPIKey(token string) (*model.User, error) {
 			u.show_reading_time,
 			u.entry_swipe,
 			u.gesture_nav,
+			u.article_open,
 			u.last_login_at,
 			u.stylesheet,
 			u.google_id,
@@ -456,6 +466,7 @@ func (s *Storage) fetchUser(query string, args ...interface{}) (*model.User, err
 		&user.ShowReadingTime,
 		&user.EntrySwipe,
 		&user.GestureNav,
+		&user.ArticleOpen,
 		&user.LastLoginAt,
 		&user.Stylesheet,
 		&user.GoogleID,
@@ -564,6 +575,7 @@ func (s *Storage) Users() (model.Users, error) {
 			show_reading_time,
 			entry_swipe,
 			gesture_nav,
+			article_open,
 			last_login_at,
 			stylesheet,
 			google_id,
@@ -601,6 +613,7 @@ func (s *Storage) Users() (model.Users, error) {
 			&user.ShowReadingTime,
 			&user.EntrySwipe,
 			&user.GestureNav,
+			&user.ArticleOpen,
 			&user.LastLoginAt,
 			&user.Stylesheet,
 			&user.GoogleID,

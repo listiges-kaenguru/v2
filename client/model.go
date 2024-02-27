@@ -34,6 +34,7 @@ type User struct {
 	ShowReadingTime        bool       `json:"show_reading_time"`
 	EntrySwipe             bool       `json:"entry_swipe"`
 	GestureNav             string     `json:"gesture_nav"`
+	ArticleOpen            string     `json:"article_open"`
 	LastLoginAt            *time.Time `json:"last_login_at"`
 	DisplayMode            string     `json:"display_mode"`
 	DefaultReadingSpeed    int        `json:"default_reading_speed"`
@@ -73,6 +74,7 @@ type UserModificationRequest struct {
 	KeyboardShortcuts      *bool   `json:"keyboard_shortcuts"`
 	ShowReadingTime        *bool   `json:"show_reading_time"`
 	EntrySwipe             *bool   `json:"entry_swipe"`
+	ArticleOpen            *string `json:"article_open"`
 	GestureNav             *string `json:"gesture_nav"`
 	DisplayMode            *string `json:"display_mode"`
 	DefaultReadingSpeed    *int    `json:"default_reading_speed"`

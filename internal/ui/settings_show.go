@@ -38,6 +38,7 @@ func (h *handler) showSettingsPage(w http.ResponseWriter, r *http.Request) {
 		CustomCSS:              user.Stylesheet,
 		EntrySwipe:             user.EntrySwipe,
 		GestureNav:             user.GestureNav,
+		ArticleOpen:            user.ArticleOpen,
 		DisplayMode:            user.DisplayMode,
 		DefaultReadingSpeed:    user.DefaultReadingSpeed,
 		CJKReadingSpeed:        user.CJKReadingSpeed,
